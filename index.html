@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pirate Name Generator</title>
+  <style>
+    body {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      background-color: #1a1a1a;
+      background-image:url('https://c4.wallpaperflare.com/wallpaper/792/259/786/pirates-pirate-flag-pirate-ship-skull-clouds-hd-wallpaper-preview.jpg');
+      background-size: 1300px; 
+      color: #fffdfd;
+      text-align: center;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+    }
+    .container {
+      margin-top: 50px;
+      padding: 20px;
+      border: 2px dashed #ccc;
+      background-color: #1a1918;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 20px 20px;
+      background-color: #d9534f;
+      color: rgb(10, 10, 10);
+      border: none;
+      box-shadow: 5px 5px 5px 5px  #d9534f;
+      -moz-box-align: center;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #c9302c;
+    }
+    .pirate-name {
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pirate Name Generator</h1>
+  <p>Ahoy pirate! What's your name ?</p>
+  <input type="text" id="nameInput" placeholder="Myself ">
+  <br>
+  <div class="container">
+    <p>Click the button to generate your pirate name!</p>
+    <button class="btn" onclick="generatePirateName()">Get your Name</button>
+    <div class="pirate-name" id="pirateName">Your pirate name is ...</div>
+  </div>
+
+  <script>
+    const firstNames = [
+        "Captain", "Navigator", "Cook", "Silver", "Golden", 
+        "White", "Jack", "One-Eyed", "Cannoneer", "Death","Black","Dark","King","Shadow","Kraken","Master"
+    ];
+    const middleNames = [
+        "Beard", "Bones", "Skull", "Killer", "Cannon", 
+        "of Seas", "Sparrow", "Storm", "Hook", "Mist","Treasurer","Pirate","Kraken","of Ship","Reaper"
+    ];
+
+    function generatePirateName() {
+        const nameInput = document.getElementById('nameInput').value.trim();
+        
+        if (nameInput === "") {
+            alert("Please enter a name!");
+            return;
+        }
+
+        const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+        const middleName = middleNames[Math.floor(Math.random() * middleNames.length)];
+        
+        const pirateName = `${firstName} ${middleName} ${nameInput}`;
+        document.getElementById('pirateName').innerText = pirateName;
+    }
+</script>
+</body>
+</html>
+
